@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calculator by Subhdeep kaur</title>
+    <style>
+        /* CSS code here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            border-color: rgb(155, 44, 44);
+        }
+        .button {
+            width: 60px;
+            padding: 15px;
+            margin: 5px;
+            font-size: 20px;
+           background-color: rgb(255, 147, 165);
+        }
+        input {
+            width: 250px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculator by Subhdeep Kaur</h1>
+    
+    <input type="text" id="display" /><br/>
+    
+    <button class="button">7</button>
+    <button class="button">8</button>
+    <button class="button">9</button>
+    <button class="button">*</button><br/>
+    
+    <button class="button">4</button>
+    <button class="button">5</button>
+    <button class="button">6</button>
+    <button class="button">/</button><br/>
+    
+    <button class="button">1</button>
+    <button class="button">2</button>
+    <button class="button">3</button>
+    <button class="button">+</button><br/>
+    
+    <button class="button">0</button>
+    <button class="button">.</button>
+    <button class="button">=</button>
+    <button class="button">-</button><br/>
+    
+    <button class="button">C</button>
+
+    <script>
+        // JS logic here
+        let display = document.getElementById('display');
+        let string = "";
+
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const value = e.target.innerHTML;
+                
+                if (value === '=') {
+                    try {
+                        string = eval(string);
+                        display.value = string;
+                    } catch {
+                        display.value = "Error";
+                    }
+                } else if (value === 'C') {
+                    string = "";
+                    display.value = string;
+                } else {
+                    string += value;
+                    display.value = string;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
